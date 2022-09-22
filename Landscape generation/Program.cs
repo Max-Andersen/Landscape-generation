@@ -3,7 +3,7 @@ Console.WriteLine("Hello, World!");
 
 
 
-Map myMap = new Map(100);
+Map myMap = new Map(500);
 
 Console.WriteLine(myMap.cells.GetUpperBound(0) + 1);
 
