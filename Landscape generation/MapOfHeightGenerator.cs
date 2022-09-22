@@ -27,7 +27,6 @@ public class MapOfHeigthGenerator
         return ((noise - 128f) / 128f + 1f) / 2f;
     }
 
-
     private void getMapValues(Map map)
     {
         _width = map.cells.GetUpperBound(0) + 1;
