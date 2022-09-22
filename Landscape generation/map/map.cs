@@ -1,6 +1,6 @@
 public class Map
 {
-
+    public uint size;
     public Map(uint size)
     {
         cells = new Cell[size, size];
@@ -12,6 +12,14 @@ public class Map
                 cells[i, j] = new Cell();
             }
         }
+
+        this.size = size;
+    }
+
+    public bool isInMapBounds(int x, int y)
+    {
+        bool flag = false || x >= 0 & x < size & 0 <= y & y < size;
+        return flag;
     }
     
     public Cell[,] cells;

@@ -80,7 +80,7 @@ public class MapOfHeigthGenerator
             //Console.Write("-----");
             for (int j = 0; j < _width; j++)
             {
-                Console.Write(map.cells[i, j].height);
+                Console.Write(map.cells[i, j].height + " ");
                 //Console.Write("-----");
             }
             Console.Write("\n");
