@@ -27,15 +27,14 @@ public class MapOfHeigthGenerator
         return ((noise - 128f) / 128f + 1f) / 2f;
     }
 
-
     private void getMapValues(Map map)
     {
         _width = map.cells.GetUpperBound(0) + 1;
         _height = map.cells.GetUpperBound(0) + 1;
-        _scale = 0.1f;
+        _scale = 0.008f;
     }
 
-    public MapOfHeigthGenerator(Map map)// input: Map
+    public MapOfHeigthGenerator(Map map)
     {
         generateSeed();
         Noise.Seed = _seed;
@@ -43,6 +42,23 @@ public class MapOfHeigthGenerator
         getSimplexNoise();
     }
 
+    private void printHumanityReadForm(Map map)
+    {
+        for (int i = 0; i < _width; i++)
+        {
+            for (int j = 0; j < _width; j++)
+            {
+                if (map.cells[i, j].height <= 1f) map.cells[i, j].height = 0f;
+                else map.cells[i, j].height = 1f;
+            }
+        }
+
+        for (int i = 0; i < _width; i++)
+        {
+            for (int j = 0; j < _width; j++) Console.Write(map.cells[i, j].height);
+            Console.Write("\n");
+        }
+    }
 
     public Map modify(Map map)
     {
@@ -50,42 +66,15 @@ public class MapOfHeigthGenerator
         {
             for (int j = 0; j < _width; j++)
             {
-                map.cells[i, j].height = translateNoiseToSmallerValue(_noise[i, j]);
-
-                float d = (1 - i * i) * (1 - j * j);
-                //float d = 2 * Math.Max(Math.Abs(nx), Math.Abs(ny));
-                //map.cells[i, j].height = (map.cells[i, j].height + (1 - d)) / 2;
+                float nx = 2f * i / _width - 1f;
+                float ny = 2f * j / _height - 1f;
+                float d = (1f - nx * nx) * (1f - ny * ny); // https://www.wolframalpha.com/input/?i=plot+%281-x%5E2%29%281-y%5E2%29+from+-1+to+1
+                                                           // need to make islands
+                map.cells[i, j].height = (translateNoiseToSmallerValue(_noise[i, j]) + (1f + d)) / 2f;
             }
         }
 
-
-        for (int i = 0; i < _width; i++)
-        {
-            for (int j = 0; j < _width; j++)
-            {
-                if (map.cells[i, j].height <= 0.4f)
-                {
-                    map.cells[i, j].height = 0f;
-                }
-                else
-                {
-                    map.cells[i, j].height = 1f;
-                }
-            }
-        }
-
-
-        for (int i = 0; i < _width; i++)
-        {
-            //Console.Write("-----");
-            for (int j = 0; j < _width; j++)
-            {
-                Console.Write(map.cells[i, j].height + " ");
-                //Console.Write("-----");
-            }
-            Console.Write("\n");
-        }
+        printHumanityReadForm(map);
         return map;
     }
-
 }
