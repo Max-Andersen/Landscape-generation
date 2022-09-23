@@ -17,11 +17,11 @@ namespace Landscape_generation.Generator
                 {
                     elevation = (byte)map.cells[i, j].height;
                     humidity = (byte)map.cells[i, j].humidity;
-                    if (elevation < 0f)
+                    if (elevation < 0)
                     {
-                        map.cells[i, j].color.blue = (byte)(127 + 127 * elevation);
-                        map.cells[i, j].color.red = (byte)(48 + 48 * elevation);
-                        map.cells[i, j].color.green = (byte)(64 + 64 * elevation);
+                        map.cells[i, j].color.blue = 255;//(byte)(127 + 127 * elevation)
+                        map.cells[i, j].color.red = 0;//(byte)(48 + 48 * elevation)
+                        map.cells[i, j].color.green = 0;//(byte)(64 + 64 * elevation)
                     }
                     else
                     {

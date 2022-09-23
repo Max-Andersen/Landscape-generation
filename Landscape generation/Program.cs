@@ -14,3 +14,8 @@ myMap = humidity.modify(myMap);
 
 BiomeGenerator biome = new BiomeGenerator(myMap);
 myMap = biome.modify(myMap);
+
+ImageExporter exporter = new PngExporter();
+exporter.Export(myMap, @"C:\Users\Maxim\source\repos\Landscape generation\test.png");
+
+Console.WriteLine("finish");

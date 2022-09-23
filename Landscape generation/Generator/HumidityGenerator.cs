@@ -28,14 +28,14 @@ public class HumidityGenerator : MapModifier
             y++;
         }
         
-        for (int i = 0; i < map.size; i++)
-        {
-            for (int j = 0; j < map.size; j++)
-            {
-                Console.Write(map.cells[i, j].humidity + " ");
-            }
-            Console.Write("\n");
-        }
+        //for (int i = 0; i < map.size; i++)
+        //{
+        //    for (int j = 0; j < map.size; j++)
+        //    {
+        //        Console.Write(map.cells[i, j].humidity + " ");
+        //    }
+        //    Console.Write("\n");
+        //}
 
         return map;
     }
