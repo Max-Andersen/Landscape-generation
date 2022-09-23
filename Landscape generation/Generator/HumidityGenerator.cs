@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Drawing;
-using System.Security.Cryptography;
-
-namespace Landscape_generation.Generator;
+﻿namespace Landscape_generation.Generator;
 
 public class HumidityGenerator : MapModifier
 {

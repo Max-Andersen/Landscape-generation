@@ -4,13 +4,9 @@ using Landscape_generation.Generator;
 
 Console.WriteLine("Hello, World!");
 
+Map myMap = new Map(1000);
 
-
-Map myMap = new Map(100);
-
-Console.WriteLine(myMap.cells.GetUpperBound(0) + 1);
-
-MapOfHeigthGenerator gen = new MapOfHeigthGenerator(myMap);
+MapOfHeightGenerator gen = new MapOfHeightGenerator(myMap);
 myMap = gen.modify(myMap);
 
 HumidityGenerator humidity = new HumidityGenerator(myMap);
