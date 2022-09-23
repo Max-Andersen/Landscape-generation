@@ -12,3 +12,5 @@ myMap = gen.modify(myMap);
 HumidityGenerator humidity = new HumidityGenerator(myMap);
 myMap = humidity.modify(myMap);
 
+BiomeGenerator biome = new BiomeGenerator(myMap);
+myMap = biome.modify(myMap);
