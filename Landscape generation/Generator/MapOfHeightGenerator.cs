@@ -73,7 +73,7 @@ public class MapOfHeightGenerator: MapModifier
             }
         }
 
-        printHumanityReadForm(map);
+        //printHumanityReadForm(map);
         return map;
     }
 }

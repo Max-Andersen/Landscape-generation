@@ -3,7 +3,7 @@
 public class HumidityGenerator : MapModifier
 {
     private Random _random = new Random();
-    private const int sizeSquare = 3;
+    private const int sizeSquare = 2;
 
     public HumidityGenerator(Map map)
     {
@@ -24,7 +24,7 @@ public class HumidityGenerator : MapModifier
             
             if (x == map.size) break;
 
-            map.cells[x, y].humidity = aroundSquare(map, x, y);
+            map.cells[x, y].humidity = averageAroundSquare(map, x, y);
             y++;
         }
         
@@ -52,9 +52,9 @@ public class HumidityGenerator : MapModifier
 
             if (x == map.size) break;
             
-            if (map.cells[x, y].height == 0)
+            if (map.cells[x, y].height < 0)
             {
-                map.cells[x, y].humidity = _random.Next(80, 100);
+                map.cells[x, y].humidity = _random.Next(60, 101);
             }
             /*else if (map.cells[x,y].height >= 0 & map.cells[x,y].height < 50)
             {
@@ -71,7 +71,7 @@ public class HumidityGenerator : MapModifier
         return map;
     }
 
-    public int aroundSquare(Map map, int x, int y)
+    public int averageAroundSquare(Map map, int x, int y)
     {
         int sum = 0, k = 0;
         for (int i = -sizeSquare; i <= sizeSquare; i++)
