@@ -1,4 +1,4 @@
-class Cell
+public class Cell
 {
     public float height;
     public int humidity;

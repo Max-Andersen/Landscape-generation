@@ -1,4 +1,4 @@
-struct Color 
+public struct Color 
 {
     public byte red;
     public byte green;
