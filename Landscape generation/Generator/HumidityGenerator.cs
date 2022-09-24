@@ -27,16 +27,21 @@ public class HumidityGenerator : MapModifier
             map.cells[x, y].humidity = averageAroundSquare(map, x, y);
             y++;
         }
-        
-        //for (int i = 0; i < map.size; i++)
-        //{
-        //    for (int j = 0; j < map.size; j++)
-        //    {
-        //        Console.Write(map.cells[i, j].humidity + " ");
-        //    }
-        //    Console.Write("\n");
-        //}
 
+        int maxx = -123321312;
+        int minn = 112412421;
+
+        for (int i = 0; i < map.size; i++)
+        {
+            for (int j = 0; j < map.size; j++)
+            {
+                if (map.cells[i, j].humidity > maxx) maxx = map.cells[i, j].humidity;
+                if (map.cells[i, j].humidity < minn) minn = map.cells[i, j].humidity;
+            }
+            
+        }
+        Console.WriteLine(maxx);
+        Console.WriteLine(minn);
         return map;
     }
 
