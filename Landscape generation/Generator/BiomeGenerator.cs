@@ -85,14 +85,7 @@ namespace Landscape_generation.Generator
                         //map.cells[i, j].color.red = (byte)(255 * elevation + r * (1 - elevation));
                         //map.cells[i, j].color.green = (byte)(255 * elevation + g * (1 - elevation));
                     }
-                    //else if (map.cells[i, j].humidity < 30)
-                    //{
-                    //    map.cells[i, j].color.blue = 0;
-                    //    map.cells[i, j].color.red = 60;
-                    //    map.cells[i, j].color.green = 0;
-                    //}
-
-                    // Console.WriteLine(map.cells[i,j].color + " ");
+ 
                 }
             }
 
