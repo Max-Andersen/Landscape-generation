@@ -22,3 +22,4 @@ map.cells[i, j].height = (translateNoiseToSmallerValue(_noise[i, j]) + 1f - d) /
 - Трушкин Артём
 - Зубанова Алина
 - Шуман Карина
+- Гончаров Тимофей
